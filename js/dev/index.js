@@ -5734,7 +5734,7 @@ const main_search = document.getElementById("main_search");
 searchBtn.addEventListener("click", function(e) {
   e.preventDefault();
   main_search.value = "";
-  main_search.focus();
+  document.activeElement === main_search ? main_search.blur() : main_search.focus();
   this.classList.toggle("active");
   search.classList.toggle("active");
   headerSearch.classList.toggle("search--active");
