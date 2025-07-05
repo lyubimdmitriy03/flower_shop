@@ -5509,8 +5509,6 @@ function slide_change() {
     this._moveMarker(this.realIndex);
   }
 }
-console.log(renderBullets());
-console.log((index, className) => `<span class="${className}"></span>`);
 function initSliders() {
   if (document.querySelector(".products-slider")) {
     new Swiper(".products-slider", {
@@ -5560,17 +5558,10 @@ function initSliders() {
         clickable: true,
         renderBullet: renderBullets()
       },
-      // Скроллбар
-      /*
-      scrollbar: {
-      	el: '.swiper-scrollbar',
-      	draggable: true,
-      },
-      */
       // Кнопки "вліво/вправо"
       navigation: {
-        prevEl: ".swiper-button-prev",
-        nextEl: ".swiper-button-next"
+        prevEl: ".products-slider-button-prev",
+        nextEl: ".products-slider-button-next"
       },
       /*
       // Брейкпоінти

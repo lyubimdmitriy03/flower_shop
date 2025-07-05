@@ -12,8 +12,8 @@
 		<link rel="preload" href="./assets/fonts/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 		<link rel="shortcut icon" href="./assets/img/favicon.ico">
 		<title>Home Page</title>
-		<script type="module" crossorigin="" src="./js/index.min.js?v=1751682401485"></script>
-		<link rel="stylesheet" crossorigin="" href="./css/index.min.css?v=1751682401485">
+		<script type="module" crossorigin="" src="./js/index.min.js?v=1751758563797"></script>
+		<link rel="stylesheet" crossorigin="" href="./css/index.min.css?v=1751758563797">
 	</head>
 	<body>
 		<div class="wrapper">
@@ -322,8 +322,8 @@
 </each>
 </fetch>
 -->
-						<div class="header__tools" data-fls-dynamic=".header__menu, 768, 0, .header__body">
-							<div class="header__search" data-fls-dynamic=".menu__body, 768, 0, .header__menu">
+						<div class="header__tools" data-fls-dynamic=".header__menu, 767, 0, .header__body">
+							<div class="header__search" data-fls-dynamic=".menu__body, 767, 0, .header__menu">
 								<a data-fls-ripple="" href="#" class="search-btn">
 									<span class="--icon-search"></span>
 									<span class="--icon-close"></span>
@@ -358,10 +358,6 @@
 				<div class="page__container">
 					<section class="top-section">
 						<div class="top-section__body">
-							<!--
-<div class="top-section__content">
-</div>
--->
 							<div class="top-section__content-wrapper">
 								<h1>Breath Natureal</h1>
 								<p>
@@ -402,7 +398,7 @@
 									</blockquote>
 								</article>
 							</div>
-							<div class="top-section__products">
+							<div data-fls-dynamic=".top-section, 767, 1, .page__container" class="top-section__products">
 								<div data-fls-slider="" class="products-slider swiper">
 									<div class="products-slider__wrapper swiper-wrapper">
 										<div class="products-slider__slide swiper-slide">
@@ -599,8 +595,10 @@
 									<div class="products-slider__pagination">
 										<div class="swiper-pagination"></div>
 									</div>
-									<div class="swiper-button-next"></div>
-									<div class="swiper-button-prev"></div>
+									<div class="products-slider__navigation">
+										<div class="products-slider-button-prev --icon-slider_arrow"></div>
+										<div class="products-slider-button-next --icon-slider_arrow"></div>
+									</div>
 								</div>
 							</div>
 						</div>
