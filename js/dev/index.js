@@ -5473,12 +5473,22 @@ function EffectCreative(_ref) {
 function renderBullets() {
   return (index, className) => `<span class="${className}"></span>`;
 }
+function slide_change() {
+  if (typeof this._moveMarker === "function") {
+    this._moveMarker(this.realIndex);
+  }
+}
 function init_float_pagination() {
   const swiperInstance = this;
-  const paginationEl = document.querySelector(".swiper-pagination");
-  const marker = document.createElement("span");
-  marker.id = "swiper-pagination-marker";
-  paginationEl.appendChild(marker);
+  const container = swiperInstance.el.closest(".swiper");
+  if (!container) return;
+  const paginationEl = container.querySelector(".swiper-pagination");
+  if (!paginationEl) return;
+  if (!paginationEl.querySelector(".swiper-pagination-marker")) {
+    const marker = document.createElement("span");
+    marker.classList.add("swiper-pagination-marker");
+    paginationEl.appendChild(marker);
+  }
   const styles = getComputedStyle(paginationEl);
   parseFloat(styles.getPropertyValue("--bullet-size"));
   const markerRadiusCircle = styles.getPropertyValue("--marker-radius-circle").trim();
@@ -5486,28 +5496,47 @@ function init_float_pagination() {
   let lastLeft = 0;
   swiperInstance._moveMarker = (index) => {
     const bullets = paginationEl.querySelectorAll(".swiper-pagination-bullet");
-    const marker2 = document.getElementById("swiper-pagination-marker");
-    if (!bullets[index] || !marker2) return;
+    const marker = paginationEl.querySelector(".swiper-pagination-marker");
+    if (!bullets[index] || !marker) return;
     const target = bullets[index];
     const currentLeft = target.offsetLeft;
     const bulletWidth = target.offsetWidth;
     const distance = Math.abs(currentLeft - lastLeft);
-    marker2.style.setProperty("--marker-width", `${distance + bulletWidth}px`);
-    marker2.style.setProperty("--marker-left", `${Math.min(lastLeft, currentLeft)}px`);
-    marker2.style.setProperty("--marker-radius", markerRadiusOval);
+    marker.style.setProperty("--marker-width", `${distance + bulletWidth}px`);
+    marker.style.setProperty("--marker-left", `${Math.min(lastLeft, currentLeft)}px`);
+    marker.style.setProperty("--marker-radius", markerRadiusOval);
     setTimeout(() => {
-      marker2.style.setProperty("--marker-width", `${bulletWidth}px`);
-      marker2.style.setProperty("--marker-left", `${currentLeft}px`);
-      marker2.style.setProperty("--marker-radius", markerRadiusCircle);
+      marker.style.setProperty("--marker-width", `${bulletWidth}px`);
+      marker.style.setProperty("--marker-left", `${currentLeft}px`);
+      marker.style.setProperty("--marker-radius", markerRadiusCircle);
       lastLeft = currentLeft;
     }, 500);
   };
-  swiperInstance._moveMarker(swiperInstance.realIndex);
-}
-function slide_change() {
-  if (typeof this._moveMarker === "function") {
-    this._moveMarker(this.realIndex);
+  const fraction = container.querySelector(".swiper-pagination-fraction");
+  let currentEl, totalEl;
+  if (fraction) {
+    fraction.innerHTML = `
+			<span class="current">1</span>
+			<span class="divider">/</span>
+			<span class="total">1</span>
+		`;
+    currentEl = fraction.querySelector(".current");
+    totalEl = fraction.querySelector(".total");
   }
+  const updateFraction = () => {
+    if (currentEl && totalEl) {
+      const currentIndex = swiperInstance.realIndex + 1;
+      const totalSlides = swiperInstance.wrapperEl.querySelectorAll(".swiper-slide:not(.swiper-slide-duplicate)").length;
+      currentEl.textContent = currentIndex;
+      totalEl.textContent = totalSlides;
+    }
+  };
+  swiperInstance._moveMarker(swiperInstance.realIndex);
+  updateFraction();
+  swiperInstance.on("slideChange", () => {
+    swiperInstance._moveMarker(swiperInstance.realIndex);
+    updateFraction();
+  });
 }
 function initSliders() {
   if (document.querySelector(".products-slider")) {
@@ -5554,7 +5583,7 @@ function initSliders() {
       // 	disableOnInteraction: true,
       // },
       pagination: {
-        el: ".swiper-pagination",
+        el: ".products-slider__wrapper .swiper-pagination",
         clickable: true,
         renderBullet: renderBullets()
       },
@@ -5562,6 +5591,88 @@ function initSliders() {
       navigation: {
         prevEl: ".products-slider-button-prev",
         nextEl: ".products-slider-button-next"
+      },
+      /*
+      // Брейкпоінти
+      breakpoints: {
+      	640: {
+      		slidesPerView: 1,
+      		spaceBetween: 0,
+      		autoHeight: true,
+      	},
+      	768: {
+      		slidesPerView: 2,
+      		spaceBetween: 20,
+      	},
+      	992: {
+      		slidesPerView: 3,
+      		spaceBetween: 20,
+      	},
+      	1268: {
+      		slidesPerView: 4,
+      		spaceBetween: 30,
+      	},
+      },
+      */
+      // Події
+      on: {
+        init: init_float_pagination,
+        slideChange: slide_change
+      }
+    });
+  }
+  if (document.querySelector(".grand-slider")) {
+    new Swiper(".grand-slider", {
+      // <- Вказуємо склас потрібного слайдера
+      // Підключаємо модулі слайдера
+      // для конкретного випадку
+      modules: [Navigation, Pagination, Autoplay, EffectCreative, EffectFade],
+      observer: true,
+      observeParents: true,
+      slidesPerView: 1,
+      spaceBetween: 30,
+      //autoHeight: true,
+      speed: 1500,
+      //touchRatio: 0,
+      //simulateTouch: false,
+      loop: true,
+      //preloadImages: false,
+      //lazy: true,
+      // Ефекти
+      // effect: "fade",
+      // grabCursor: true,
+      // effect: "creative",
+      // creativeEffect: {
+      // 	prev: {
+      // 		shadow: true,
+      // 		translate: [0, 0, -400],
+      // 	},
+      // 	next: {
+      // 		translate: ["100%", 0, 0],
+      // 	},
+      // },
+      // creativeEffect: {
+      // 	prev: {
+      // 		shadow: true,
+      // 		translate: ["-20%", 0, -1],
+      // 	},
+      // 	next: {
+      // 		translate: ["100%", 0, 0],
+      // 	},
+      // },
+      // autoplay: {
+      // 	delay: 3000,
+      // 	disableOnInteraction: true,
+      // },
+      pagination: {
+        el: ".grand-slider__wrapper .swiper-pagination",
+        clickable: true,
+        renderBullet: renderBullets()
+      },
+      // Кнопки "вліво/вправо"
+      navigation: {
+        prevEl: ".grand-slider-button-prev",
+        nextEl: ".grand-slider-button-next"
       },
       /*
       // Брейкпоінти
@@ -5666,6 +5777,337 @@ const gotoBlock = (targetBlock, noHeader = false, speed = 500, offsetTop = 0) =>
     });
   }
 };
+function cloneContent({
+  buttonSelector,
+  removeSelectors = []
+}) {
+  const buttons = document.querySelectorAll(buttonSelector);
+  buttons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      e.preventDefault();
+      const popupName = button.getAttribute("data-fls-popup-link");
+      if (!popupName) return;
+      const popup = document.querySelector(`[data-fls-popup="${popupName}"]`);
+      if (!popup) return;
+      const popupContent = popup.querySelector(".popup__text");
+      if (!popupContent) return;
+      const parent = button.closest("[data-popup-content-clone]");
+      if (!parent) return;
+      const clone = parent.cloneNode(true);
+      removeSelectors.forEach((selector) => {
+        clone.querySelectorAll(selector).forEach((el) => el.remove());
+      });
+      popupContent.innerHTML = "";
+      popupContent.appendChild(clone);
+    });
+  });
+}
+class Popup {
+  constructor(options) {
+    let config = {
+      logging: true,
+      init: true,
+      //Для кнопок
+      attributeOpenButton: "data-fls-popup-link",
+      // Атрибут для кнопки, яка викликає попап
+      attributeCloseButton: "data-fls-popup-close",
+      // Атрибут для кнопки, що закриває попап
+      // Для сторонніх об'єктів
+      fixElementSelector: "[data-fls-lp]",
+      // Атрибут для елементів із лівим паддингом (які fixed)
+      // Для об'єкту попапа
+      attributeMain: "data-fls-popup",
+      youtubeAttribute: "data-fls-popup-youtube",
+      // Атрибут для коду youtube
+      youtubePlaceAttribute: "data-fls-popup-youtube-place",
+      // Атрибут для вставки ролика youtube
+      setAutoplayYoutube: true,
+      // Зміна класів
+      classes: {
+        popup: "popup",
+        // popupWrapper: 'popup__wrapper',
+        popupContent: "data-fls-popup-body",
+        popupActive: "data-fls-popup-active",
+        // Додається для попапа, коли він відкривається
+        bodyActive: "data-fls-popup-open"
+        // Додається для боді, коли попап відкритий
+      },
+      focusCatch: true,
+      // Фокус усередині попапа зациклений
+      closeEsc: true,
+      // Закриття ESC
+      bodyLock: true,
+      // Блокування скролла
+      hashSettings: {
+        location: true,
+        // Хеш в адресному рядку
+        goHash: true
+        // Перехід по наявності в адресному рядку
+      },
+      on: {
+        // Події
+        beforeOpen: function() {
+        },
+        afterOpen: function() {
+        },
+        beforeClose: function() {
+        },
+        afterClose: function() {
+        }
+      }
+    };
+    this.youTubeCode;
+    this.isOpen = false;
+    this.targetOpen = {
+      selector: false,
+      element: false
+    };
+    this.previousOpen = {
+      selector: false,
+      element: false
+    };
+    this.lastClosed = {
+      selector: false,
+      element: false
+    };
+    this._dataValue = false;
+    this.hash = false;
+    this._reopen = false;
+    this._selectorOpen = false;
+    this.lastFocusEl = false;
+    this._focusEl = [
+      "a[href]",
+      'input:not([disabled]):not([type="hidden"]):not([aria-hidden])',
+      "button:not([disabled]):not([aria-hidden])",
+      "select:not([disabled]):not([aria-hidden])",
+      "textarea:not([disabled]):not([aria-hidden])",
+      "area[href]",
+      "iframe",
+      "object",
+      "embed",
+      "[contenteditable]",
+      '[tabindex]:not([tabindex^="-"])'
+    ];
+    this.options = {
+      ...config,
+      ...options,
+      classes: {
+        ...config.classes,
+        ...options == null ? void 0 : options.classes
+      },
+      hashSettings: {
+        ...config.hashSettings,
+        ...options == null ? void 0 : options.hashSettings
+      },
+      on: {
+        ...config.on,
+        ...options == null ? void 0 : options.on
+      }
+    };
+    this.bodyLock = false;
+    this.options.init ? this.initPopups() : null;
+  }
+  initPopups() {
+    this.buildPopup();
+    this.eventsPopup();
+  }
+  buildPopup() {
+  }
+  eventsPopup() {
+    document.addEventListener("click", (function(e) {
+      const buttonOpen = e.target.closest(`[${this.options.attributeOpenButton}]`);
+      if (buttonOpen) {
+        e.preventDefault();
+        this._dataValue = buttonOpen.getAttribute(this.options.attributeOpenButton) ? buttonOpen.getAttribute(this.options.attributeOpenButton) : "error";
+        this.youTubeCode = buttonOpen.getAttribute(this.options.youtubeAttribute) ? buttonOpen.getAttribute(this.options.youtubeAttribute) : null;
+        if (this._dataValue !== "error") {
+          if (!this.isOpen) this.lastFocusEl = buttonOpen;
+          this.targetOpen.selector = `${this._dataValue}`;
+          this._selectorOpen = true;
+          this.open();
+          return;
+        }
+        return;
+      }
+      const buttonClose = e.target.closest(`[${this.options.attributeCloseButton}]`);
+      if (buttonClose || !e.target.closest(`[${this.options.classes.popupContent}]`) && this.isOpen) {
+        e.preventDefault();
+        this.close();
+        return;
+      }
+    }).bind(this));
+    document.addEventListener("keydown", (function(e) {
+      if (this.options.closeEsc && e.which == 27 && e.code === "Escape" && this.isOpen) {
+        e.preventDefault();
+        this.close();
+        return;
+      }
+      if (this.options.focusCatch && e.which == 9 && this.isOpen) {
+        this._focusCatch(e);
+        return;
+      }
+    }).bind(this));
+    if (this.options.hashSettings.goHash) {
+      window.addEventListener("hashchange", (function() {
+        if (window.location.hash) {
+          this._openToHash();
+        } else {
+          this.close(this.targetOpen.selector);
+        }
+      }).bind(this));
+      if (window.location.hash) {
+        this._openToHash();
+      }
+    }
+  }
+  open(selectorValue) {
+    if (bodyLockStatus) {
+      this.bodyLock = document.documentElement.hasAttribute("data-fls-scrolllock") && !this.isOpen ? true : false;
+      if (selectorValue && typeof selectorValue === "string" && selectorValue.trim() !== "") {
+        this.targetOpen.selector = selectorValue;
+        this._selectorOpen = true;
+      }
+      if (this.isOpen) {
+        this._reopen = true;
+        this.close();
+      }
+      if (!this._selectorOpen) this.targetOpen.selector = this.lastClosed.selector;
+      if (!this._reopen) this.previousActiveElement = document.activeElement;
+      this.targetOpen.element = document.querySelector(`[${this.options.attributeMain}=${this.targetOpen.selector}]`);
+      if (this.targetOpen.element) {
+        const codeVideo = this.youTubeCode || this.targetOpen.element.getAttribute(`${this.options.youtubeAttribute}`);
+        if (codeVideo) {
+          const urlVideo = `https://www.youtube.com/embed/${codeVideo}?rel=0&showinfo=0&autoplay=1`;
+          const iframe = document.createElement("iframe");
+          const autoplay = this.options.setAutoplayYoutube ? "autoplay;" : "";
+          iframe.setAttribute("allowfullscreen", "");
+          iframe.setAttribute("allow", `${autoplay}; encrypted-media`);
+          iframe.setAttribute("src", urlVideo);
+          if (!this.targetOpen.element.querySelector(`[${this.options.youtubePlaceAttribute}]`)) {
+            this.targetOpen.element.querySelector("[data-fls-popup-content]").setAttribute(`${this.options.youtubePlaceAttribute}`, "");
+          }
+          this.targetOpen.element.querySelector(`[${this.options.youtubePlaceAttribute}]`).appendChild(iframe);
+        }
+        if (this.options.hashSettings.location) {
+          this._getHash();
+          this._setHash();
+        }
+        this.options.on.beforeOpen(this);
+        document.dispatchEvent(new CustomEvent("beforePopupOpen", {
+          detail: {
+            popup: this
+          }
+        }));
+        this.targetOpen.element.setAttribute(this.options.classes.popupActive, "");
+        document.documentElement.setAttribute(this.options.classes.bodyActive, "");
+        if (!this._reopen) {
+          !this.bodyLock ? bodyLock() : null;
+        } else this._reopen = false;
+        this.targetOpen.element.setAttribute("aria-hidden", "false");
+        this.previousOpen.selector = this.targetOpen.selector;
+        this.previousOpen.element = this.targetOpen.element;
+        this._selectorOpen = false;
+        this.isOpen = true;
+        setTimeout(() => {
+          this._focusTrap();
+        }, 50);
+        this.options.on.afterOpen(this);
+        document.dispatchEvent(new CustomEvent("afterPopupOpen", {
+          detail: {
+            popup: this
+          }
+        }));
+      }
+    }
+  }
+  close(selectorValue) {
+    if (selectorValue && typeof selectorValue === "string" && selectorValue.trim() !== "") {
+      this.previousOpen.selector = selectorValue;
+    }
+    if (!this.isOpen || !bodyLockStatus) {
+      return;
+    }
+    this.options.on.beforeClose(this);
+    document.dispatchEvent(new CustomEvent("beforePopupClose", {
+      detail: {
+        popup: this
+      }
+    }));
+    if (this.targetOpen.element.querySelector(`[${this.options.youtubePlaceAttribute}]`)) {
+      setTimeout(() => {
+        this.targetOpen.element.querySelector(`[${this.options.youtubePlaceAttribute}]`).innerHTML = "";
+      }, 500);
+    }
+    this.previousOpen.element.removeAttribute(this.options.classes.popupActive);
+    this.previousOpen.element.setAttribute("aria-hidden", "true");
+    if (!this._reopen) {
+      document.documentElement.removeAttribute(this.options.classes.bodyActive);
+      !this.bodyLock ? bodyUnlock() : null;
+      this.isOpen = false;
+    }
+    this._removeHash();
+    if (this._selectorOpen) {
+      this.lastClosed.selector = this.previousOpen.selector;
+      this.lastClosed.element = this.previousOpen.element;
+    }
+    this.options.on.afterClose(this);
+    document.dispatchEvent(new CustomEvent("afterPopupClose", {
+      detail: {
+        popup: this
+      }
+    }));
+    setTimeout(() => {
+      this._focusTrap();
+    }, 50);
+  }
+  // Отримання хешу 
+  _getHash() {
+    if (this.options.hashSettings.location) {
+      this.hash = `#${this.targetOpen.selector}`;
+    }
+  }
+  _openToHash() {
+    let classInHash = window.location.hash.replace("#", "");
+    const openButton = document.querySelector(`[${this.options.attributeOpenButton}="${classInHash}"]`);
+    if (openButton) {
+      this.youTubeCode = openButton.getAttribute(this.options.youtubeAttribute) ? openButton.getAttribute(this.options.youtubeAttribute) : null;
+    }
+    if (classInHash) this.open(classInHash);
+  }
+  // Встановлення хеша
+  _setHash() {
+    history.pushState("", "", this.hash);
+  }
+  _removeHash() {
+    history.pushState("", "", window.location.href.split("#")[0]);
+  }
+  _focusCatch(e) {
+    const focusable = this.targetOpen.element.querySelectorAll(this._focusEl);
+    const focusArray = Array.prototype.slice.call(focusable);
+    const focusedIndex = focusArray.indexOf(document.activeElement);
+    if (e.shiftKey && focusedIndex === 0) {
+      focusArray[focusArray.length - 1].focus();
+      e.preventDefault();
+    }
+    if (!e.shiftKey && focusedIndex === focusArray.length - 1) {
+      focusArray[0].focus();
+      e.preventDefault();
+    }
+  }
+  _focusTrap() {
+    const focusable = this.previousOpen.element.querySelectorAll(this._focusEl);
+    if (!this.isOpen && this.lastFocusEl) {
+      this.lastFocusEl.focus();
+    } else {
+      focusable[0].focus();
+    }
+  }
+}
+cloneContent({
+  buttonSelector: ".btn-clone-content",
+  removeSelectors: [".btn-clone-content", ".video-button"]
+});
+document.querySelector("[data-fls-popup]") ? window.addEventListener("load", () => window.flsPopup = new Popup({})) : null;
 function menu_hover() {
   const menu_body = document.querySelector(".menu__body");
   const marker = document.createElement("span");
@@ -6237,3 +6679,90 @@ function rippleEffect() {
   });
 }
 document.querySelector("[data-fls-ripple]") ? window.addEventListener("load", rippleEffect) : null;
+function preloader() {
+  const preloaderImages = document.querySelectorAll("img");
+  const htmlDocument = document.documentElement;
+  const isPreloaded = localStorage.getItem(location.href) && document.querySelector('[data-fls-preloader="true"]');
+  if (preloaderImages.length && !isPreloaded) {
+    let setValueProgress2 = function(progress2) {
+      showPecentLoad ? showPecentLoad.innerText = `${progress2}%` : null;
+      showLineLoad ? showLineLoad.style.width = `${progress2}%` : null;
+    }, imageLoaded2 = function() {
+      imagesLoadedCount++;
+      progress = Math.round(100 / preloaderImages.length * imagesLoadedCount);
+      const intervalId = setInterval(() => {
+        counter >= progress ? clearInterval(intervalId) : setValueProgress2(++counter);
+        counter >= 100 ? addLoadedClass() : null;
+      }, 10);
+    };
+    var setValueProgress = setValueProgress2, imageLoaded = imageLoaded2;
+    const preloaderTemplate = `
+			<div class="fls-preloader">
+				<div class="fls-preloader__body">
+					    <section class="animation-container">
+							<div class="loading-animation">
+									<div class="loading-animation-block" style="--i:1">
+											<img src="/assets/img/preloader_images/flower_1.svg" alt="Image">
+									</div>
+									<div class="loading-animation-block" style="--i:2">
+											<img src="/assets/img/preloader_images/flower_1_1.svg" alt="Image">
+									</div>
+									<div class="loading-animation-block" style="--i:3">
+											<img src="/assets/img/preloader_images/flower_2.svg" alt="Image">
+									</div>
+									<div class="loading-animation-block" style="--i:4">
+											<img src="/assets/img/preloader_images/flower_2_1.svg" alt="Image">
+									</div>
+									<div class="loading-animation-block" style="--i:5">
+											<img src="/assets/img/preloader_images/flower_3.svg" alt="Image">
+									</div>
+									<div class="loading-animation-block" style="--i:6">
+											<img src="/assets/img/preloader_images/flower_3_1.svg" alt="Image">
+									</div>
+									<div class="loading-animation-block" style="--i:7">
+											<img src="/assets/img/preloader_images/flower_4.svg" alt="Image">
+									</div>
+									<div class="loading-animation-block" style="--i:8">
+											<img src="/assets/img/preloader_images/flower_4_1.svg" alt="Image">
+									</div>
+									<div class="loading-animation-block" style="--i:9">
+											<img src="/assets/img/preloader_images/flower_5.svg" alt="Image">
+									</div>
+									<div class="loading-animation-block" style="--i:10">
+											<img src="/assets/img/preloader_images/flower_5_1.svg" alt="Image">
+									</div>
+							</div>
+						</section>
+				</div>
+			</div>`;
+    document.body.insertAdjacentHTML("beforeend", preloaderTemplate);
+    document.querySelector(".fls-preloader");
+    const showPecentLoad = document.querySelector(".fls-preloader__counter"), showLineLoad = document.querySelector(".fls-preloader__line span");
+    let imagesLoadedCount = 0;
+    let counter = 0;
+    let progress = 0;
+    htmlDocument.setAttribute("data-fls-preloader-loading", "");
+    htmlDocument.setAttribute("data-fls-scrolllock", "");
+    preloaderImages.forEach((preloaderImage) => {
+      const imgClone = document.createElement("img");
+      if (imgClone) {
+        imgClone.onload = imageLoaded2;
+        imgClone.onerror = imageLoaded2;
+        preloaderImage.dataset.src ? imgClone.src = preloaderImage.dataset.src : imgClone.src = preloaderImage.src;
+      }
+    });
+    setValueProgress2(progress);
+    const preloaderOnce = () => localStorage.setItem(location.href, "preloaded");
+    document.querySelector('[data-fls-preloader="true"]') ? preloaderOnce() : null;
+  } else {
+    addLoadedClass();
+  }
+  function addLoadedClass() {
+    window.setTimeout(function() {
+      htmlDocument.setAttribute("data-fls-preloader-loaded", "");
+      htmlDocument.removeAttribute("data-fls-preloader-loading");
+      htmlDocument.removeAttribute("data-fls-scrolllock");
+    }, 2e3);
+  }
+}
+document.addEventListener("DOMContentLoaded", preloader);

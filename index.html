@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="en">
 	<head>
+		<style data-fls-preloader="false" rel="preload">
+			body > *:not(.fls-preloader) {opacity: 0;visibility: hidden;}[data-fls-preloader-loaded] body > *:not(.fls-preloader) {transition: opacity 0.5s ease 0s;opacity: 1;visibility: visible;}
+		</style>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="preload" href="./assets/fonts/Telma-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
@@ -12,8 +15,8 @@
 		<link rel="preload" href="./assets/fonts/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 		<link rel="shortcut icon" href="./assets/img/favicon.ico">
 		<title>Home Page</title>
-		<script type="module" crossorigin="" src="./js/index.min.js?v=1751841380991"></script>
-		<link rel="stylesheet" crossorigin="" href="./css/index.min.css?v=1751841380991">
+		<script type="module" crossorigin="" src="./js/index.min.js?v=1752265321301"></script>
+		<link rel="stylesheet" crossorigin="" href="./css/index.min.css?v=1752265321301">
 	</head>
 	<body>
 		<div class="wrapper">
@@ -360,17 +363,30 @@
 				<div class="page__container">
 					<section class="top-section">
 						<div class="top-section__body">
-							<div class="top-section__content-wrapper">
+							<div class="top-section__content-wrapper" data-popup-content-clone="">
 								<h1>Breath Natureal</h1>
 								<p>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-						et
-						dolore magna
-						aliqua.
+									Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, commodi eius aliquid deleniti
+						debitis atque delectus quo quidem earum incidunt, sint maiores vero aspernatur ut illum omnis
+						suscipit, corporis officiis.
+						Rem laboriosam deleniti, commodi sapiente libero quibusdam in numquam porro perferendis unde dolore
+						eos at alias excepturi quas cupiditate vero obcaecati, temporibus quod incidunt ratione. Maxime cumque
+						consequuntur atque eum?
+						Harum nulla voluptatem ullam eveniet earum! Nesciunt voluptatum aut, corporis aliquid optio
+						architecto, dignissimos modi quia repudiandae, dolore perspiciatis deleniti dicta voluptas. Pariatur,
+						facere. Ipsa molestias enim rem ab cumque?
+						Nostrum in nihil ducimus dolor explicabo fuga, molestiae obcaecati unde similique asperiores voluptas
+						recusandae qui debitis ea alias saepe eos consequatur a suscipit odit eius? Enim voluptates voluptas
+						ea reiciendis.
+						Dolorum possimus quis qui repellendus reiciendis tempora quibusdam ullam officia non voluptas vero
+						accusantium debitis explicabo praesentium necessitatibus corporis rerum minus facere magnam, officiis
+						ea unde nobis excepturi? Cum, sed.
+						Minus fugiat, doloremque dolor eveniet assumenda facilis, nobis laborum dicta alias officia rem optio
+						molestias unde nesciunt magnam aliquid fugit recusandae, consequatur nemo cum!
 								</p>
 								<div class="top-section__content-blocks">
-									<a data-fls-button="" data-fls-ripple="" href="#" class="button button--primary">Explore</a>
-									<a data-fls-button="" href="#" class="video-button --icon-video_play">
+									<a href="#" data-fls-popup-link="popup--explore" data-fls-button="" data-fls-ripple="" class="button button--primary btn-clone-content">Explore</a>
+									<a href="#" data-fls-button="" data-fls-popup-link="popup--video" data-fls-popup-youtube="i45qkmxHeBU?si=wD3xTQXfIWj149aQ" class="video-button --icon-video_play">
 										<svg class="circle" xmlns="http://www.w3.org/2000/svg">
 											<g>
 												<ellipse class="background" ry="60" rx="60" cy="62.5" cx="62.5" stroke-width="6"></ellipse>
@@ -400,9 +416,9 @@
 									</blockquote>
 								</article>
 							</div>
-							<div data-fls-dynamic=".top-section, 767, 1, .page__container" class="top-section__products">
+							<div data-fls-dynamic=".top-section, 767, 1, .page__container" class="top-section__products products-slider__wrapper">
 								<div data-fls-slider="" class="products-slider swiper">
-									<div class="products-slider__wrapper swiper-wrapper">
+									<div class="products-slider__inner swiper-wrapper">
 										<div class="products-slider__slide swiper-slide">
 											<article data-fls-addtocart-product="" class="product products-card" itemscope itemtype="https://schema.org/Product">
 												<div class="products-card__body">
@@ -608,46 +624,62 @@
 					<section class="advertising">
 						<h2>Our Trendy plants</h2>
 						<article class="product-big" data-fls-addtocart-product="">
-							<div class="product-big__inner">
+							<div class="product-big__inner" data-popup-content-clone="">
 								<div class="product-big__image">
 									<img data-fls-addtocart-image="" src="./assets/img/flowers/flower_2_big.png" alt="Image">
 								</div>
 								<div class="product-big__content">
 									<h3>For Small Decs Ai Plat</h3>
 									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-							et
-							dolore magna
-							aliqua
+										Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quos aut ipsam nisi distinctio
+							maxime possimus inventore, ut exercitationem esse repellat provident eveniet nostrum excepturi
+							magni, fugit eum corrupti porro!
+							Natus assumenda sint totam. Ipsam eaque incidunt voluptatem suscipit minima facilis sapiente, totam
+							perferendis eveniet quas? Sit voluptatem nulla, atque quae illum eaque, unde quibusdam obcaecati
+							libero nihil dolorem accusamus.
+							Totam natus fugiat corrupti sint sapiente quas explicabo sit, maiores itaque ab aliquid obcaecati
+							earum vel mollitia placeat est veniam illo id nihil iusto doloremque tempora praesentium aperiam
+							alias? Veniam.
+							Aliquam veritatis accusamus asperiores, debitis suscipit maiores iste odio facere esse molestias,
+							officiis nisi. Vitae dolore minus quis voluptatem tempora ut aliquid? Incidunt, porro optio cum id
+							consequuntur unde aspernatur!
 									</p>
 									<div class="product-big__price">
 										<span>17$</span>
 									</div>
 									<div class="product-big__purchase">
-										<button data-fls-button="" type="submit" class="button button--primary">Explore</button>
+										<a href="#" data-fls-popup-link="popup--explore" data-fls-button="" data-fls-ripple="" class="button button--primary btn-clone-content">Explore</a>
 										<button data-fls-ripple="" data-fls-addtocart-button="" class="button button--bag --icon-bag" type="button"></button>
 									</div>
 								</div>
 							</div>
 						</article>
 						<article class="product-big" data-fls-addtocart-product="">
-							<div class="product-big__inner row-reverse">
+							<div class="product-big__inner row-reverse" data-popup-content-clone="">
 								<div class="product-big__image">
 									<img data-fls-addtocart-image="" src="./assets/img/flowers/flower_3_big.png" alt="Image">
 								</div>
 								<div class="product-big__content">
 									<h3>For Small Decs Ai Plat</h3>
 									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-							et
-							dolore magna
-							aliqua
+										Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quos aut ipsam nisi distinctio
+							maxime possimus inventore, ut exercitationem esse repellat provident eveniet nostrum excepturi
+							magni, fugit eum corrupti porro!
+							Natus assumenda sint totam. Ipsam eaque incidunt voluptatem suscipit minima facilis sapiente, totam
+							perferendis eveniet quas? Sit voluptatem nulla, atque quae illum eaque, unde quibusdam obcaecati
+							libero nihil dolorem accusamus.
+							Totam natus fugiat corrupti sint sapiente quas explicabo sit, maiores itaque ab aliquid obcaecati
+							earum vel mollitia placeat est veniam illo id nihil iusto doloremque tempora praesentium aperiam
+							alias? Veniam.
+							Aliquam veritatis accusamus asperiores, debitis suscipit maiores iste odio facere esse molestias,
+							officiis nisi. Vitae dolore minus quis voluptatem tempora ut aliquid? Incidunt, porro optio cum id
+							consequuntur unde aspernatur!
 									</p>
 									<div class="product-big__price">
 										<span>14$</span>
 									</div>
 									<div class="product-big__purchase">
-										<button data-fls-button="" type="submit" class="button button--primary">Explore</button>
+										<a href="#" data-fls-popup-link="popup--explore" data-fls-button="" data-fls-ripple="" class="button button--primary btn-clone-content">Explore</a>
 										<button data-fls-ripple="" data-fls-addtocart-button="" class="button button--bag --icon-bag" type="button"></button>
 									</div>
 								</div>
@@ -789,27 +821,520 @@
 									</div>
 								</article>
 							</div>
-							<div class="coods__item">
-								<article data-fls-addtocart-product="" class="product products-card" itemscope itemtype="https://schema.org/Product">
-									<div class="products-card__body">
-										<a href="/products/monstera-deliciosa" class="products-card__link">
-											<figure class="products-card__figure">
-												<div class="products-card__image">
-													<img data-fls-addtocart-image="" src="./assets/img/flowers/flower_7.png" alt="flower" itemprop="image">
-												</div>
-												<figcaption class="products-card__label">Trendy House Plant</figcaption>
-											</figure>
-											<h4 class="products-card__title" itemprop="name">Calathea plant</h4>
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-										</a>
-										<div class="products-card__details">
-											<p class="products-card__price">
-												<span itemprop="price" content="23$">23$</span>
-											</p>
-											<button data-fls-ripple="" data-fls-addtocart-button="" class="button button--bag --icon-bag" type="button"></button>
-										</div>
-									</div>
+						</div>
+					</section>
+					<section class="testimonials">
+						<h2>Customer Review</h2>
+						<div class="testimonials__items">
+							<div class="testimonials__item">
+								<article class="testimonial-item" aria-labelledby="testimonial1-author">
+									<header class="testimonial-item__author">
+										<figure class="testimonial-item__figure" role="presentation">
+											<img src="./assets/img/testimonial_photo_1.png" alt="photo" class="testimonial-item__photo">
+											<figcaption id="testimonial1-author" class="testimonial-item__info">
+												<span class="testimonial-item__name">Maxn Raval</span>
+												<div data-fls-rating="set" data-fls-rating-value="4.5" class="rating"></div>
+											</figcaption>
+										</figure>
+									</header>
+									<blockquote class="testimonial-item__quote">
+										<p class="testimonial-item__text">
+											Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt...
+										</p>
+									</blockquote>
 								</article>
+							</div>
+							<div class="testimonials__item">
+								<article class="testimonial-item" aria-labelledby="testimonial1-author">
+									<header class="testimonial-item__author">
+										<figure class="testimonial-item__figure" role="presentation">
+											<img src="./assets/img/testimonial_photo_2.png" alt="photo" class="testimonial-item__photo">
+											<figcaption id="testimonial1-author" class="testimonial-item__info">
+												<span class="testimonial-item__name">Venely Kane</span>
+												<div data-fls-rating="set" data-fls-rating-value="4.5" class="rating"></div>
+											</figcaption>
+										</figure>
+									</header>
+									<blockquote class="testimonial-item__quote">
+										<p class="testimonial-item__text">
+											Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt...
+										</p>
+									</blockquote>
+								</article>
+							</div>
+							<div class="testimonials__item">
+								<article class="testimonial-item" aria-labelledby="testimonial1-author">
+									<header class="testimonial-item__author">
+										<figure class="testimonial-item__figure" role="presentation">
+											<img src="./assets/img/testimonial_photo_3.png" alt="photo" class="testimonial-item__photo">
+											<figcaption id="testimonial1-author" class="testimonial-item__info">
+												<span class="testimonial-item__name">Lii Thakur</span>
+												<div data-fls-rating="set" data-fls-rating-value="4.5" class="rating"></div>
+											</figcaption>
+										</figure>
+									</header>
+									<blockquote class="testimonial-item__quote">
+										<p class="testimonial-item__text">
+											Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt...
+										</p>
+									</blockquote>
+								</article>
+							</div>
+						</div>
+					</section>
+					<section class="info">
+						<div class="info__inner grand-slider__wrapper">
+							<div data-fls-slider="" class="grand-slider swiper">
+								<div class="grand-slider__inner swiper-wrapper">
+									<div class="grand-slider__slide swiper-slide">
+										<article class="product-big" data-fls-addtocart-product="">
+											<div class="product-big__inner" data-popup-content-clone="">
+												<div class="product-big__image">
+													<img data-fls-addtocart-image="" src="./assets/img/flowers/flower_1.png" alt="Image">
+												</div>
+												<div class="product-big__content">
+													<h3>We Have Small And Best O2 Plants Collection’s</h3>
+													<div class="product-big__text">
+														<p>
+															Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minima aperiam et qui? Debitis
+						maxime, beatae porro hic expedita et nostrum autem voluptatum exercitationem dolore reiciendis quos!
+						Sunt, temporibus veniam!
+						Possimus dolore at obcaecati alias quam voluptate labore! Hic officiis nihil in doloremque assumenda
+						deserunt corrupti quod modi architecto eaque dolorum nemo vero, enim dignissimos magni quis maxime at
+						neque?
+						Reprehenderit ex adipisci dolores delectus cum enim? Itaque est quod mollitia repudiandae expedita
+						dolorum placeat debitis doloremque quae unde soluta in reprehenderit exercitationem animi, molestias
+						sit officia iusto ratione? Nemo.
+														</p>
+														<p>
+															Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minima aperiam et qui? Debitis
+						maxime, beatae porro hic expedita et nostrum autem voluptatum exercitationem dolore reiciendis quos!
+						Sunt, temporibus veniam!
+						Possimus dolore at obcaecati alias quam voluptate labore! Hic officiis nihil in doloremque assumenda
+						deserunt corrupti quod modi architecto eaque dolorum nemo vero, enim dignissimos magni quis maxime at
+						neque?
+						Reprehenderit ex adipisci dolores delectus cum enim? Itaque est quod mollitia repudiandae expedita
+						dolorum placeat debitis doloremque quae unde soluta in reprehenderit exercitationem animi, molestias
+						sit officia iusto ratione? Nemo.
+														</p>
+													</div>
+													<div class="product-big__purchase">
+														<a href="#" data-fls-popup-link="popup--explore" data-fls-button="" data-fls-ripple="" class="button button--primary btn-clone-content">Explore</a>
+													</div>
+												</div>
+											</div>
+										</article>
+									</div>
+									<!--
+<button class="button button--svg">
+<span class="button__text">Explore</span>
+<svg class="button__border" viewBox="0 0 100 40" preserveAspectRatio="none">
+<rect class="border-bg" x="2" y="2" width="97" height="37" rx="12" ry="12" />
+<rect class="border-fg" x="2" y="2" width="97" height="37" rx="12" ry="12" />
+</svg>
+</button>
+<a href="#" class="button button--svg">
+<span class="button__text">Explore</span>
+<svg class="button__border" viewBox="0 0 100 40" preserveAspectRatio="none">
+<rect class="border-bg" x="1.5" y="1.5" width="97" height="37" rx="5" ry="5" />
+<rect class="border-fg" x="1.5" y="1.5" width="97" height="37" rx="5" ry="5" />
+</svg>
+</a>
+-->
+									<div class="grand-slider__slide swiper-slide">
+										<article class="product-big" data-fls-addtocart-product="">
+											<div class="product-big__inner" data-popup-content-clone="">
+												<div class="product-big__image">
+													<img data-fls-addtocart-image="" src="./assets/img/flowers/flower_2.png" alt="Image">
+												</div>
+												<div class="product-big__content">
+													<h3>We Have Small And Best O2 Plants Collection’s</h3>
+													<div class="product-big__text">
+														<p>
+															Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minima aperiam et qui? Debitis
+						maxime, beatae porro hic expedita et nostrum autem voluptatum exercitationem dolore reiciendis quos!
+						Sunt, temporibus veniam!
+						Possimus dolore at obcaecati alias quam voluptate labore! Hic officiis nihil in doloremque assumenda
+						deserunt corrupti quod modi architecto eaque dolorum nemo vero, enim dignissimos magni quis maxime at
+						neque?
+						Reprehenderit ex adipisci dolores delectus cum enim? Itaque est quod mollitia repudiandae expedita
+						dolorum placeat debitis doloremque quae unde soluta in reprehenderit exercitationem animi, molestias
+						sit officia iusto ratione? Nemo.
+														</p>
+														<p>
+															Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minima aperiam et qui? Debitis
+						maxime, beatae porro hic expedita et nostrum autem voluptatum exercitationem dolore reiciendis quos!
+						Sunt, temporibus veniam!
+						Possimus dolore at obcaecati alias quam voluptate labore! Hic officiis nihil in doloremque assumenda
+						deserunt corrupti quod modi architecto eaque dolorum nemo vero, enim dignissimos magni quis maxime at
+						neque?
+						Reprehenderit ex adipisci dolores delectus cum enim? Itaque est quod mollitia repudiandae expedita
+						dolorum placeat debitis doloremque quae unde soluta in reprehenderit exercitationem animi, molestias
+						sit officia iusto ratione? Nemo.
+														</p>
+													</div>
+													<div class="product-big__purchase">
+														<a href="#" data-fls-popup-link="popup--explore" data-fls-button="" data-fls-ripple="" class="button button--primary btn-clone-content">Explore</a>
+													</div>
+												</div>
+											</div>
+										</article>
+									</div>
+									<!--
+<button class="button button--svg">
+<span class="button__text">Explore</span>
+<svg class="button__border" viewBox="0 0 100 40" preserveAspectRatio="none">
+<rect class="border-bg" x="2" y="2" width="97" height="37" rx="12" ry="12" />
+<rect class="border-fg" x="2" y="2" width="97" height="37" rx="12" ry="12" />
+</svg>
+</button>
+<a href="#" class="button button--svg">
+<span class="button__text">Explore</span>
+<svg class="button__border" viewBox="0 0 100 40" preserveAspectRatio="none">
+<rect class="border-bg" x="1.5" y="1.5" width="97" height="37" rx="5" ry="5" />
+<rect class="border-fg" x="1.5" y="1.5" width="97" height="37" rx="5" ry="5" />
+</svg>
+</a>
+-->
+									<div class="grand-slider__slide swiper-slide">
+										<article class="product-big" data-fls-addtocart-product="">
+											<div class="product-big__inner" data-popup-content-clone="">
+												<div class="product-big__image">
+													<img data-fls-addtocart-image="" src="./assets/img/flowers/flower_3_big.png" alt="Image">
+												</div>
+												<div class="product-big__content">
+													<h3>We Have Small And Best O2 Plants Collection’s</h3>
+													<div class="product-big__text">
+														<p>
+															Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minima aperiam et qui? Debitis
+						maxime, beatae porro hic expedita et nostrum autem voluptatum exercitationem dolore reiciendis quos!
+						Sunt, temporibus veniam!
+						Possimus dolore at obcaecati alias quam voluptate labore! Hic officiis nihil in doloremque assumenda
+						deserunt corrupti quod modi architecto eaque dolorum nemo vero, enim dignissimos magni quis maxime at
+						neque?
+						Reprehenderit ex adipisci dolores delectus cum enim? Itaque est quod mollitia repudiandae expedita
+						dolorum placeat debitis doloremque quae unde soluta in reprehenderit exercitationem animi, molestias
+						sit officia iusto ratione? Nemo.
+														</p>
+														<p>
+															Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minima aperiam et qui? Debitis
+						maxime, beatae porro hic expedita et nostrum autem voluptatum exercitationem dolore reiciendis quos!
+						Sunt, temporibus veniam!
+						Possimus dolore at obcaecati alias quam voluptate labore! Hic officiis nihil in doloremque assumenda
+						deserunt corrupti quod modi architecto eaque dolorum nemo vero, enim dignissimos magni quis maxime at
+						neque?
+						Reprehenderit ex adipisci dolores delectus cum enim? Itaque est quod mollitia repudiandae expedita
+						dolorum placeat debitis doloremque quae unde soluta in reprehenderit exercitationem animi, molestias
+						sit officia iusto ratione? Nemo.
+														</p>
+													</div>
+													<div class="product-big__purchase">
+														<a href="#" data-fls-popup-link="popup--explore" data-fls-button="" data-fls-ripple="" class="button button--primary btn-clone-content">Explore</a>
+													</div>
+												</div>
+											</div>
+										</article>
+									</div>
+									<!--
+<button class="button button--svg">
+<span class="button__text">Explore</span>
+<svg class="button__border" viewBox="0 0 100 40" preserveAspectRatio="none">
+<rect class="border-bg" x="2" y="2" width="97" height="37" rx="12" ry="12" />
+<rect class="border-fg" x="2" y="2" width="97" height="37" rx="12" ry="12" />
+</svg>
+</button>
+<a href="#" class="button button--svg">
+<span class="button__text">Explore</span>
+<svg class="button__border" viewBox="0 0 100 40" preserveAspectRatio="none">
+<rect class="border-bg" x="1.5" y="1.5" width="97" height="37" rx="5" ry="5" />
+<rect class="border-fg" x="1.5" y="1.5" width="97" height="37" rx="5" ry="5" />
+</svg>
+</a>
+-->
+									<div class="grand-slider__slide swiper-slide">
+										<article class="product-big" data-fls-addtocart-product="">
+											<div class="product-big__inner" data-popup-content-clone="">
+												<div class="product-big__image">
+													<img data-fls-addtocart-image="" src="./assets/img/flowers/flower_4.png" alt="Image">
+												</div>
+												<div class="product-big__content">
+													<h3>We Have Small And Best O2 Plants Collection’s</h3>
+													<div class="product-big__text">
+														<p>
+															Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minima aperiam et qui? Debitis
+						maxime, beatae porro hic expedita et nostrum autem voluptatum exercitationem dolore reiciendis quos!
+						Sunt, temporibus veniam!
+						Possimus dolore at obcaecati alias quam voluptate labore! Hic officiis nihil in doloremque assumenda
+						deserunt corrupti quod modi architecto eaque dolorum nemo vero, enim dignissimos magni quis maxime at
+						neque?
+						Reprehenderit ex adipisci dolores delectus cum enim? Itaque est quod mollitia repudiandae expedita
+						dolorum placeat debitis doloremque quae unde soluta in reprehenderit exercitationem animi, molestias
+						sit officia iusto ratione? Nemo.
+														</p>
+														<p>
+															Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minima aperiam et qui? Debitis
+						maxime, beatae porro hic expedita et nostrum autem voluptatum exercitationem dolore reiciendis quos!
+						Sunt, temporibus veniam!
+						Possimus dolore at obcaecati alias quam voluptate labore! Hic officiis nihil in doloremque assumenda
+						deserunt corrupti quod modi architecto eaque dolorum nemo vero, enim dignissimos magni quis maxime at
+						neque?
+						Reprehenderit ex adipisci dolores delectus cum enim? Itaque est quod mollitia repudiandae expedita
+						dolorum placeat debitis doloremque quae unde soluta in reprehenderit exercitationem animi, molestias
+						sit officia iusto ratione? Nemo.
+														</p>
+													</div>
+													<div class="product-big__purchase">
+														<a href="#" data-fls-popup-link="popup--explore" data-fls-button="" data-fls-ripple="" class="button button--primary btn-clone-content">Explore</a>
+													</div>
+												</div>
+											</div>
+										</article>
+									</div>
+									<!--
+<button class="button button--svg">
+<span class="button__text">Explore</span>
+<svg class="button__border" viewBox="0 0 100 40" preserveAspectRatio="none">
+<rect class="border-bg" x="2" y="2" width="97" height="37" rx="12" ry="12" />
+<rect class="border-fg" x="2" y="2" width="97" height="37" rx="12" ry="12" />
+</svg>
+</button>
+<a href="#" class="button button--svg">
+<span class="button__text">Explore</span>
+<svg class="button__border" viewBox="0 0 100 40" preserveAspectRatio="none">
+<rect class="border-bg" x="1.5" y="1.5" width="97" height="37" rx="5" ry="5" />
+<rect class="border-fg" x="1.5" y="1.5" width="97" height="37" rx="5" ry="5" />
+</svg>
+</a>
+-->
+									<div class="grand-slider__slide swiper-slide">
+										<article class="product-big" data-fls-addtocart-product="">
+											<div class="product-big__inner" data-popup-content-clone="">
+												<div class="product-big__image">
+													<img data-fls-addtocart-image="" src="./assets/img/flowers/flower_5_big.png" alt="Image">
+												</div>
+												<div class="product-big__content">
+													<h3>We Have Small And Best O2 Plants Collection’s</h3>
+													<div class="product-big__text">
+														<p>
+															Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minima aperiam et qui? Debitis
+						maxime, beatae porro hic expedita et nostrum autem voluptatum exercitationem dolore reiciendis quos!
+						Sunt, temporibus veniam!
+						Possimus dolore at obcaecati alias quam voluptate labore! Hic officiis nihil in doloremque assumenda
+						deserunt corrupti quod modi architecto eaque dolorum nemo vero, enim dignissimos magni quis maxime at
+						neque?
+						Reprehenderit ex adipisci dolores delectus cum enim? Itaque est quod mollitia repudiandae expedita
+						dolorum placeat debitis doloremque quae unde soluta in reprehenderit exercitationem animi, molestias
+						sit officia iusto ratione? Nemo.
+														</p>
+														<p>
+															Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minima aperiam et qui? Debitis
+						maxime, beatae porro hic expedita et nostrum autem voluptatum exercitationem dolore reiciendis quos!
+						Sunt, temporibus veniam!
+						Possimus dolore at obcaecati alias quam voluptate labore! Hic officiis nihil in doloremque assumenda
+						deserunt corrupti quod modi architecto eaque dolorum nemo vero, enim dignissimos magni quis maxime at
+						neque?
+						Reprehenderit ex adipisci dolores delectus cum enim? Itaque est quod mollitia repudiandae expedita
+						dolorum placeat debitis doloremque quae unde soluta in reprehenderit exercitationem animi, molestias
+						sit officia iusto ratione? Nemo.
+														</p>
+													</div>
+													<div class="product-big__purchase">
+														<a href="#" data-fls-popup-link="popup--explore" data-fls-button="" data-fls-ripple="" class="button button--primary btn-clone-content">Explore</a>
+													</div>
+												</div>
+											</div>
+										</article>
+									</div>
+									<!--
+<button class="button button--svg">
+<span class="button__text">Explore</span>
+<svg class="button__border" viewBox="0 0 100 40" preserveAspectRatio="none">
+<rect class="border-bg" x="2" y="2" width="97" height="37" rx="12" ry="12" />
+<rect class="border-fg" x="2" y="2" width="97" height="37" rx="12" ry="12" />
+</svg>
+</button>
+<a href="#" class="button button--svg">
+<span class="button__text">Explore</span>
+<svg class="button__border" viewBox="0 0 100 40" preserveAspectRatio="none">
+<rect class="border-bg" x="1.5" y="1.5" width="97" height="37" rx="5" ry="5" />
+<rect class="border-fg" x="1.5" y="1.5" width="97" height="37" rx="5" ry="5" />
+</svg>
+</a>
+-->
+									<div class="grand-slider__slide swiper-slide">
+										<article class="product-big" data-fls-addtocart-product="">
+											<div class="product-big__inner" data-popup-content-clone="">
+												<div class="product-big__image">
+													<img data-fls-addtocart-image="" src="./assets/img/flowers/flower_6.png" alt="Image">
+												</div>
+												<div class="product-big__content">
+													<h3>We Have Small And Best O2 Plants Collection’s</h3>
+													<div class="product-big__text">
+														<p>
+															Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minima aperiam et qui? Debitis
+						maxime, beatae porro hic expedita et nostrum autem voluptatum exercitationem dolore reiciendis quos!
+						Sunt, temporibus veniam!
+						Possimus dolore at obcaecati alias quam voluptate labore! Hic officiis nihil in doloremque assumenda
+						deserunt corrupti quod modi architecto eaque dolorum nemo vero, enim dignissimos magni quis maxime at
+						neque?
+						Reprehenderit ex adipisci dolores delectus cum enim? Itaque est quod mollitia repudiandae expedita
+						dolorum placeat debitis doloremque quae unde soluta in reprehenderit exercitationem animi, molestias
+						sit officia iusto ratione? Nemo.
+														</p>
+														<p>
+															Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minima aperiam et qui? Debitis
+						maxime, beatae porro hic expedita et nostrum autem voluptatum exercitationem dolore reiciendis quos!
+						Sunt, temporibus veniam!
+						Possimus dolore at obcaecati alias quam voluptate labore! Hic officiis nihil in doloremque assumenda
+						deserunt corrupti quod modi architecto eaque dolorum nemo vero, enim dignissimos magni quis maxime at
+						neque?
+						Reprehenderit ex adipisci dolores delectus cum enim? Itaque est quod mollitia repudiandae expedita
+						dolorum placeat debitis doloremque quae unde soluta in reprehenderit exercitationem animi, molestias
+						sit officia iusto ratione? Nemo.
+														</p>
+													</div>
+													<div class="product-big__purchase">
+														<a href="#" data-fls-popup-link="popup--explore" data-fls-button="" data-fls-ripple="" class="button button--primary btn-clone-content">Explore</a>
+													</div>
+												</div>
+											</div>
+										</article>
+									</div>
+									<!--
+<button class="button button--svg">
+<span class="button__text">Explore</span>
+<svg class="button__border" viewBox="0 0 100 40" preserveAspectRatio="none">
+<rect class="border-bg" x="2" y="2" width="97" height="37" rx="12" ry="12" />
+<rect class="border-fg" x="2" y="2" width="97" height="37" rx="12" ry="12" />
+</svg>
+</button>
+<a href="#" class="button button--svg">
+<span class="button__text">Explore</span>
+<svg class="button__border" viewBox="0 0 100 40" preserveAspectRatio="none">
+<rect class="border-bg" x="1.5" y="1.5" width="97" height="37" rx="5" ry="5" />
+<rect class="border-fg" x="1.5" y="1.5" width="97" height="37" rx="5" ry="5" />
+</svg>
+</a>
+-->
+									<div class="grand-slider__slide swiper-slide">
+										<article class="product-big" data-fls-addtocart-product="">
+											<div class="product-big__inner" data-popup-content-clone="">
+												<div class="product-big__image">
+													<img data-fls-addtocart-image="" src="./assets/img/flowers/flower_7.png" alt="Image">
+												</div>
+												<div class="product-big__content">
+													<h3>We Have Small And Best O2 Plants Collection’s</h3>
+													<div class="product-big__text">
+														<p>
+															Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minima aperiam et qui? Debitis
+						maxime, beatae porro hic expedita et nostrum autem voluptatum exercitationem dolore reiciendis quos!
+						Sunt, temporibus veniam!
+						Possimus dolore at obcaecati alias quam voluptate labore! Hic officiis nihil in doloremque assumenda
+						deserunt corrupti quod modi architecto eaque dolorum nemo vero, enim dignissimos magni quis maxime at
+						neque?
+						Reprehenderit ex adipisci dolores delectus cum enim? Itaque est quod mollitia repudiandae expedita
+						dolorum placeat debitis doloremque quae unde soluta in reprehenderit exercitationem animi, molestias
+						sit officia iusto ratione? Nemo.
+														</p>
+														<p>
+															Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minima aperiam et qui? Debitis
+						maxime, beatae porro hic expedita et nostrum autem voluptatum exercitationem dolore reiciendis quos!
+						Sunt, temporibus veniam!
+						Possimus dolore at obcaecati alias quam voluptate labore! Hic officiis nihil in doloremque assumenda
+						deserunt corrupti quod modi architecto eaque dolorum nemo vero, enim dignissimos magni quis maxime at
+						neque?
+						Reprehenderit ex adipisci dolores delectus cum enim? Itaque est quod mollitia repudiandae expedita
+						dolorum placeat debitis doloremque quae unde soluta in reprehenderit exercitationem animi, molestias
+						sit officia iusto ratione? Nemo.
+														</p>
+													</div>
+													<div class="product-big__purchase">
+														<a href="#" data-fls-popup-link="popup--explore" data-fls-button="" data-fls-ripple="" class="button button--primary btn-clone-content">Explore</a>
+													</div>
+												</div>
+											</div>
+										</article>
+									</div>
+									<!--
+<button class="button button--svg">
+<span class="button__text">Explore</span>
+<svg class="button__border" viewBox="0 0 100 40" preserveAspectRatio="none">
+<rect class="border-bg" x="2" y="2" width="97" height="37" rx="12" ry="12" />
+<rect class="border-fg" x="2" y="2" width="97" height="37" rx="12" ry="12" />
+</svg>
+</button>
+<a href="#" class="button button--svg">
+<span class="button__text">Explore</span>
+<svg class="button__border" viewBox="0 0 100 40" preserveAspectRatio="none">
+<rect class="border-bg" x="1.5" y="1.5" width="97" height="37" rx="5" ry="5" />
+<rect class="border-fg" x="1.5" y="1.5" width="97" height="37" rx="5" ry="5" />
+</svg>
+</a>
+-->
+									<div class="grand-slider__slide swiper-slide">
+										<article class="product-big" data-fls-addtocart-product="">
+											<div class="product-big__inner" data-popup-content-clone="">
+												<div class="product-big__image">
+													<img data-fls-addtocart-image="" src="./assets/img/flowers/flower_3.png" alt="Image">
+												</div>
+												<div class="product-big__content">
+													<h3>We Have Small And Best O2 Plants Collection’s</h3>
+													<div class="product-big__text">
+														<p>
+															Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minima aperiam et qui? Debitis
+						maxime, beatae porro hic expedita et nostrum autem voluptatum exercitationem dolore reiciendis quos!
+						Sunt, temporibus veniam!
+						Possimus dolore at obcaecati alias quam voluptate labore! Hic officiis nihil in doloremque assumenda
+						deserunt corrupti quod modi architecto eaque dolorum nemo vero, enim dignissimos magni quis maxime at
+						neque?
+						Reprehenderit ex adipisci dolores delectus cum enim? Itaque est quod mollitia repudiandae expedita
+						dolorum placeat debitis doloremque quae unde soluta in reprehenderit exercitationem animi, molestias
+						sit officia iusto ratione? Nemo.
+														</p>
+														<p>
+															Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minima aperiam et qui? Debitis
+						maxime, beatae porro hic expedita et nostrum autem voluptatum exercitationem dolore reiciendis quos!
+						Sunt, temporibus veniam!
+						Possimus dolore at obcaecati alias quam voluptate labore! Hic officiis nihil in doloremque assumenda
+						deserunt corrupti quod modi architecto eaque dolorum nemo vero, enim dignissimos magni quis maxime at
+						neque?
+						Reprehenderit ex adipisci dolores delectus cum enim? Itaque est quod mollitia repudiandae expedita
+						dolorum placeat debitis doloremque quae unde soluta in reprehenderit exercitationem animi, molestias
+						sit officia iusto ratione? Nemo.
+														</p>
+													</div>
+													<div class="product-big__purchase">
+														<a href="#" data-fls-popup-link="popup--explore" data-fls-button="" data-fls-ripple="" class="button button--primary btn-clone-content">Explore</a>
+													</div>
+												</div>
+											</div>
+										</article>
+									</div>
+									<!--
+<button class="button button--svg">
+<span class="button__text">Explore</span>
+<svg class="button__border" viewBox="0 0 100 40" preserveAspectRatio="none">
+<rect class="border-bg" x="2" y="2" width="97" height="37" rx="12" ry="12" />
+<rect class="border-fg" x="2" y="2" width="97" height="37" rx="12" ry="12" />
+</svg>
+</button>
+<a href="#" class="button button--svg">
+<span class="button__text">Explore</span>
+<svg class="button__border" viewBox="0 0 100 40" preserveAspectRatio="none">
+<rect class="border-bg" x="1.5" y="1.5" width="97" height="37" rx="5" ry="5" />
+<rect class="border-fg" x="1.5" y="1.5" width="97" height="37" rx="5" ry="5" />
+</svg>
+</a>
+-->
+								</div>
+								<div class="grand-slider__pagination">
+									<div class="grand-slider__pagination swiper-pagination"></div>
+								</div>
+								<div class="grand-slider__navigation">
+									<div class="grand-slider-button-prev --icon-slider_arrow"></div>
+									<div class="grand-slider__pagination-fraction swiper-pagination-fraction"></div>
+									<div class="grand-slider-button-next --icon-slider_arrow"></div>
+								</div>
 							</div>
 						</div>
 					</section>
@@ -1138,6 +1663,22 @@
 					</div>
 				</div>
 			</footer>
+		</div>
+		<div data-fls-popup="popup--explore" aria-hidden="true" class="popup">
+			<div data-fls-popup-wrapper="" class="popup__wrapper">
+				<div data-fls-popup-body="" class="popup__body">
+					<button data-fls-popup-close="" type="button" class="popup__close --icon-close"></button>
+					<div data-fls-popup-content="" class="popup__text"><!-- Контент --></div>
+				</div>
+			</div>
+		</div>
+		<div data-fls-popup="popup--video" aria-hidden="true" class="popup">
+			<div data-fls-popup-wrapper="" class="popup__wrapper">
+				<div data-fls-popup-body="" class="popup__body">
+					<button data-fls-popup-close="" type="button" class="popup__close --icon-close"></button>
+					<div data-fls-popup-content="" class="popup__text"></div>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>
